@@ -5,6 +5,7 @@ PFont titulo, creditos, subcreditos; //fuentes
 int x1,y1,x2,y2,x3, s1;
 int fondo;
 int  transTexto;
+
 void setup(){
   size(500,500);
   titulo = loadFont ("Algerian-48.vlw");
@@ -86,11 +87,7 @@ if(estado == 1){
    }  
   }
 
-if(estado == 2){
-  estado = 0;
-  estadoimag = 0;
-}
-if(s1 <= -1900){
+if(estado == 2 || s1 <= -1950 ){
   estado = 0;
   estadoimag = 0;
 }
