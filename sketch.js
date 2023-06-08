@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  background("black");
+  background("red");
   this.conjuntoDeCirculos.dibujar();
   this.conjuntoDeCirculos.quitarColor();
 }
