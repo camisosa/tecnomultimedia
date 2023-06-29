@@ -1,19 +1,23 @@
-class Circulo{
+class Arco{
 
-    constructor(posX_, posY_, tam_, modificarElRojo, modificarElVerde, modificarElAzul){
+    constructor(posX_, posY_,anguloStar_, anguloEnd_, modificarElRojo, modificarElVerde, modificarElAzul){
         this.posX = posX_;
         this.posY = posY_;
-        this.tam = tam_;
+        this.tam = 700;
+        this.anguloStar = anguloStar_;
+        this.anguloEnd = anguloEnd_;
+
         this.contorno = 0;
         this.expandir= 1;
         this.llegoAlLimite;
+
         this.modificarRojo = modificarElRojo;
         this.modificarVerde = modificarElVerde;
         this.modificarAzul = modificarElAzul;
         this.valorRandom = [];
-        this.valorRandom[0] =(random(0,255));
-        this.valorRandom[1] =(random(0,255));
-        this.valorRandom[2] =(random(0,255));
+        this.valorRandom[0] = (random(0,255));
+        this.valorRandom[1] = (random(0,255));
+        this.valorRandom[2] = (random(0,255));
         this.colorRojo = this.valorRandom[0];
         this.colorVerde = this.valorRandom[1];
         this.colorAzul = this.valorRandom[2];
@@ -24,14 +28,14 @@ class Circulo{
             blendMode(DIFFERENCE);
             stroke(this.colorRojo,this.colorVerde,this.colorAzul);
             strokeWeight(this.contorno);
-            noFill();
-            ellipse( this.posX , this.posY , this.tam , this.tam );
+            fill(this.colorRojo,this.colorVerde,this.colorAzul);
+            arc( this.posX , this.posY , this.tam , this.tam, this.anguloStar, this.anguloEnd, PIE);
             blendMode(BLEND);
             pop();
     }
 
     expandirGrosor(){
-        if(this.contorno == 150){
+        if(this.contorno == 100){
             this.llegoAlLimite = true;
         }else if(this.contorno == 30){
             this.llegoAlLimite = false;
@@ -43,7 +47,6 @@ class Circulo{
             this.contorno = this.contorno + this.expandir; 
         }
     }
-    
     cambioDeColores(){
         this.valorRandom[0] = (random(0,255));
         this.valorRandom[1] = (random(0,255));
